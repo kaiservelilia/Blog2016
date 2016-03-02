@@ -1,0 +1,32 @@
+<div class="container">
+	<br><br><br>
+	<div class="col-xs-4 col-xs-offset-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">LOG IN</div>
+			<div class="panel-body">
+				<div class="ui form">
+					<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+					<div class="input-group">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+					  <%= f.input :email, required: false, label: false, placeholder: "E-mail", autofocus: true%>
+				  </div>
+				  <div class="input-group">
+				  	<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+				    <%= f.input :password, required: false, label: false, placeholder: "Password" %>
+				  </div>
+						<div class="ui checkbox">
+						    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+						</div>
+						<div class="form-actions" style="padding-bottom:20px">
+						    <%= f.button :submit, "Log in", class: "btn btn-primary" %>
+						</div>
+					<% end %>
+				</div>
+				<div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+					<%= render "users/shared/links" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+Chat Conversation End

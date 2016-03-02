@@ -1,0 +1,42 @@
+<div class="ui form">
+  <div class=" container-fluid">
+    <div class="well">
+      <div class="ui item">
+          <h1 align="center">Comments</h1>
+
+          <table class="table hp-table table-splited">
+            <thead>
+              <tr>
+                <th>Comments</th>
+                <th>Action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+                <% @comments.each do |comment| %>
+                  <tr>
+                    <td><%= comment.content %></td>
+                      <td>
+                      <% if (comment.user == current_user) %>   
+                      <%= link_to 'Show', [comment.post, comment], class: "btn btn-primary btn-s" %>
+                      <%= link_to 'Edit', edit_post_comment_path(comment.post, comment), class: "btn btn-success btn-s"%>
+                      <%= link_to 'Destroy', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete, class: "btn btn-danger btn-s" %>
+                      </td>
+                      <% else %>
+                      
+                         <%= link_to 'Show', [comment.post, comment], class: "btn btn-primary btn-s" %>
+                      
+                  </tr>
+                    <% end %>
+              <% end %>
+          </tbody>
+        </table>
+
+          <br />
+          <%= link_to 'New Comment', new_post_comment_path, class: "btn btn-success btn-s" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

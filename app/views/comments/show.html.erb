@@ -1,0 +1,43 @@
+<div class="ui form">
+		<p id="notice"><%= notice %></p>
+		<table class="table hp-table table-splited">
+		
+		<thead>
+			<tr>
+				<th>Date Posted</th>
+				<th>Comment</th>
+			</tr> 
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @comment.date_posted %></td>
+				<td><%= @comment.content %></td>
+			</tr>
+		</tbody>
+	    </table>
+
+
+	<div class="ui items">
+				<table class="table hp-table table-splited">
+					<thead>
+					
+					<th>Date Posted</th>
+					<th>Reply</th>
+					</thead>
+					<tbody>
+					<% @replies.each do |c| %>
+						<tr>
+							<td><%= c.content %></td>
+							<td><%= c.date_posted %></td>
+					<% end %>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+	
+
+				<td>
+				<%= link_to 'Reply', new_reply_path(@reply), class: "btn btn-success" %> 
+				</td>
+	
+</div>		
