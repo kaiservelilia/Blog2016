@@ -13,12 +13,17 @@
 				<tbody>
 					<% @categories.each do |c| %>
 					<tr>
+					   <% if (categories.user == current_user) %>   
+                   
 						<td><%= c.name %></td>
 						<td>
 							<%= link_to "Show", category_path(c.id), class: "btn btn-success btn-s" %>
 							<%= link_to "Edit", edit_category_path(c.id), class: "btn btn-primary btn-s" %>
 							<%= link_to "Delete", category_path(c.id), data: { :confirm => "Are you sure?"}, :method => :delete, class: "btn btn-warning btn-s" %>
 						</td>
+						<% else %>
+							<%= link_to "Show", category_path(c.id), class: "btn btn-success btn-s" %>
+						
 					</tr>
 					<% end %>
 				</tbody>

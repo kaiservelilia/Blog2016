@@ -10,14 +10,10 @@ Rails.application.routes.draw do
   resources :posts
   resources :categories
   resources :contacts
-  resources :comments
   resources :replies
 
     resources :posts do
-      resources :comments
+      resources :comments, module: 'posts'
   end
 
-    resources :users do
-      resources :posts
-  end
 end
