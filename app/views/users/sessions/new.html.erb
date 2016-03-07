@@ -15,7 +15,7 @@
 				    <%= f.input :password, required: false, label: false, placeholder: "Password" %>
 				  </div>
 						<div class="ui checkbox">
-						    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+					    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 						</div>
 						<div class="form-actions" style="padding-bottom:20px">
 						    <%= f.button :submit, "Log in", class: "btn btn-primary" %>
@@ -29,4 +29,3 @@
 		</div>
 	</div>
 </div>
-Chat Conversation End

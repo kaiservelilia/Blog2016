@@ -1,46 +1,171 @@
-<div class="container">
-  <div class="well">
-    <div class="ui form">
-      <h1 align="center">Posts</h1>
-      	<%= link_to "Add New Post", new_post_path, class: "btn btn-info" %>
-      	<table class="table hp-table table-splited">
-        <thead>
-        	<tr>
-        		<th>Title</th>
-        		<th>Date Posted</th>
-        		<th>Content</th>
-            <th>Category</th>
-            <th>Action</th>
-            </tr>
-        </thead>
-
-        <tbody>
-           	<% @posts.each do |p| %>
-        	<tr>
-        		<td><%= p.title %></td>
-        		<td><%= p.date_posted %></td>
-        		<td><%= p.content %></td>
-            <td><%= p.try( :category).try (:name) %></td>
-            
-           <% if (p.user == current_user) %>   
-        		<td>
-
-        			<%= link_to "Show", post_path(p.id), class: "btn btn-primary btn-s" %>
-
-        			<%= link_to "Edit", edit_post_path(p.id), class: "btn btn-success btn-s" %>
-
-        			<%= link_to "Delete", post_path(p.id), data: { :confirm => "Are you sure?"}, :method => :delete, class: "btn btn-danger btn-s" %>
-        		</td>
-
-            <% else %>
-            <td>
-              <%= link_to "Show", post_path(p.id), class: "btn btn-primary btn-s" %>
-           </td>
-            <% end %>
-        	</tr>
-        	<% end %>
-        </tbody>
-      </table>
+<div class="ui segment">
+  <div class="ui form">
+   <%= link_to "Add New Post", new_post_path, class: "btn btn-info" %>
+   	 <table class="table hp-table table-splited">
+      <thead>
+    	 <tr>
+      	 	<th>Title</th>
+      	 	<th>Date Posted</th>
+      		<th>Category</th>
+          <th>Action</th>
+       </tr>
+      </thead>
+      <div class="ui segment">
+  <div class="ui very relaxed items">
+    <div class="item">
+      <div class="ui medium image">
+        <%= link_to image_tag('tip1.jpg'), root_path %>
+      </div>
+      <div class="content"> 
+        <a class="ui header">Exercise and Weight Loss</a>
+        <div class="description">
+          <p style="position: relative; text-align: justify;" style="text-index: 40px">Carrying around too much weight feels uncomfortable, and it can also damage your health. According the Centers of Disease Control and Prevention (CDC), obesity rates have skyrocketed in the United States in recent years. As of 2010, more than one-third of American adults were considered obese, defined as having a body mass index (BMI) of 30 or higher.</p>
+          <p style="position: relative; text-align: justify"> One method that can help a person lose weight is to limit the number of calories taken in through their diet. The other way is to burn extra calories with exercise. Advertisement Part 2 of 8: Benefits Benefits of Exercise vs. Diet Combining exercise with a healthy diet is a more effective way to lose weight than depending on calorie restriction alone. Exercise can prevent or even reverse the effects of certain diseases. Exercise lowers blood pressure and cholesterol, which may prevent a heart attack. In addition, if you exercise, you lower your risk of developing certain types of cancers such as colon and breast cancer.  </p>
+          <%= link_to 'read more...', post_path(24) %>
+      </div>
     </div>
+  </div>
+</div>
+<div class="ui segment">
+  <div class="ui very relaxed items">
+    <div class="item">
+      <div class="ui medium image">
+        <%= image_tag "tip6.jpg" %>
+      </div>
+      <div class="content"> 
+        <a class="ui header">Diet & Weight 101</a>
+        <div class="description">
+          <p style="position: relative; text-align: justify">Maintaining a healthy weight is important for everyone, but if you have diabetes, excess weight may increase your risk for complications. Unfortunately, losing weight can be extra challenging for people with diabetes. Improving your eating is important if you have diabetes, but if you choose the wrong diet, it could harm your health. Weight-loss pills and starvation diets should be avoided, but there are many popular diets that may be beneficial. Advertisement Diabetes and diet: What’s the connection? What Should You Eat? If you have diabetes, you should focus on eating lean protein, healthy vegetable-based fats (think avocado, nuts, canola oil, or olive oil), and fiber. You should also limit your carbohydrate intake.</p>
+          <p style="position: relative; text-align: justify">Aim for no more than 60 grams of carbs per meal, with 30 to 45 grams coming from complex carbs, fruits, and vegetables. The American Diabetes Association (ADA) offers a comprehensive list of the best foods for those with diabetes. Their recommendations include: Protein: beans, nuts, poultry, eggs, oily fish Vegetables and fruits: non-starchy vegetables, berries, sweet potatoes Dairy: low- or non-fat milk and yogurt Grains: whole grains (avoid refined flour) Learn about the diets that incorporate these recommendations.</p>
+          <%= link_to 'read more...', post_path(25) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui segment">
+  <div class="ui very relaxed items">
+    <div class="item">
+      <div class="ui medium image">
+        <%= image_tag "tip3.jpg" %>
+      </div>
+      <div class="content"> 
+        <a class="ui header" href="#link">The Big Loose Weight</a>
+        <div class="description">
+          <p style="position: relative; text-align: justify">Carrying around too much weight feels uncomfortable, and it can also damage your health. According the Centers of Disease Control and Prevention (CDC), obesity rates have skyrocketed in the United States in recent years. As of 2010, more than one-third of American adults were considered obese, defined as having a body mass index (BMI) of 30 or higher. Body mass is derived by dividing weight in pounds by height in inches squared, and then multiplying the result by 703 (weight (lb) / [height (in)] 2 x 703).  </p>
+          <p style="position: relative; text-align: justify">You can calculate your body mass by following these three steps: Multiply your weight in pounds by 703. Calculate your height in inches squared. Divide the resulting number from step 1 by the resulting number in step 3. Obesity can lead to a number of serious health problems, including heart disease, diabetes, stroke, and some types of cancer. One method that can help a person lose weight is to limit the number of calories taken in through their diet. The other way is to burn extra calories with exercise. Advertisement Part 2 of 8: Benefits Benefits of Exercise vs. Diet Combining exercise with a healthy diet is a more effective way to lose weight than depending on calorie restriction alone. Exercise can prevent or even reverse the effects of certain diseases. Exercise lowers blood pressure and cholesterol, which may prevent a heart attack. In addition, if you exercise, you lower your risk of developing certain types of cancers such as colon and breast cancer.</p>
+          <%= link_to 'read more...', post_path(26) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui segment">
+  <div class="ui very relaxed items">
+    <div class="item">
+      <div class="ui medium image">
+        <%= image_tag "tip4.jpg" %>
+      </div>
+      <div class="content"> 
+        <a class="ui header" href="#link">How to Loose Carbs</a>
+        <div class="description">
+          <p style="position: relative; text-align: justify">Carrying around too much weight feels uncomfortable, and it can also damage your health. According the Centers of Disease Control and Prevention (CDC), obesity rates have skyrocketed in the United States in recent years. As of 2010, more than one-third of American adults were considered obese, defined as having a body mass index (BMI) of 30 or higher. Body mass is derived by dividing weight in pounds by height in inches squared, and then multiplying the result by 703 (weight (lb) / [height (in)] 2 x 703). You can calculate your body mass by following these three steps: Multiply your weight in pounds by 703. Calculate your height in inches squared. Divide the resulting number from step 1 by the resulting number in step 3. Obesity can lead to a number of serious health problems, including heart disease, diabetes, stroke, and some types of cancer. One method that can help a person lose weight is to limit the number of calories taken in through their diet. </p>
+          <p style="position: relative; text-align: justify">The other way is to burn extra calories with exercise. Advertisement Part 2 of 8: Benefits Benefits of Exercise vs. Diet Combining exercise with a healthy diet is a more effective way to lose weight than depending on calorie restriction alone. Exercise can prevent or even reverse the effects of certain diseases. Exercise lowers blood pressure and cholesterol, which may prevent a heart attack. In addition, if you exercise, you lower your risk of developing certain types of cancers such as colon and breast cancer.</p>
+          <%= link_to 'read more...', post_path(27) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui segment">
+  <div class="ui very relaxed items">
+    <div class="item">
+      <div class="ui medium image">
+        <%= image_tag "tip5.jpg" %>
+      </div>
+      <div class="content"> 
+        <a class="ui header" href="#link">Any Help?</a>
+        <div class="description">
+          <p style="position: relative; text-align: justify">Incorporating just 15 minutes of moderate exercise — such as walking one mile — on a daily basis will burn up to 100 extra calories (assuming you don’t consume excess calories in your diet afterwards). Burning 700 calories a week can equals 10 lbs. of weight loss over the course of a year. Part 4 of 8: Heart Rate Calculating Your Target Heart Rate To receive all of the health benefits of exercise, you’ll need to mix in some higher intensity exercises. To get an idea of how hard you are working, you can check your heart rate.</p>
+          <p style="position: relative; text-align: justify"> Exercise can increase metabolism, or how many calories you burn in a day. It can also help you maintain and increase lean body mass, which also helps increase number of calories you burn each day. Part 3 of 8: Exercise How Much Exercise Is Needed for Weight Loss? To reap the health benefits of exercise, it is recommended that you to perform some form of aerobic exercise at least three times a week for a minimum of 20 minutes per session. However, more than 20 minutes is better if you want to actually lose weight.</p>
+          <%= link_to 'read more...', post_path(28) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui segment">
+  <div class="ui very relaxed items">
+    <div class="item">
+      <div class="ui medium image">
+        <%= image_tag "tip5.jpg" %>
+      </div>
+      <div class="content"> 
+        <a class="ui header" href="#link">Just Some Technic</a>
+        <div class="description">
+          <p style="position: relative; text-align: justify">Carrying around too much weight feels uncomfortable, and it can also damage your health. According the Centers of Disease Control and Prevention (CDC), obesity rates have skyrocketed in the United States in recent years. As of 2010, more than one-third of American adults were considered obese, defined as having a body mass index (BMI) of 30 or higher. Body mass is derived by dividing weight in pounds by height in inches squared, and then multiplying the result by 703 (weight (lb) / [height (in)] 2 x 703). You can calculate your body mass by following these three steps: Multiply your weight in pounds by 703. Calculate your height in inches squared. </p>
+          <p style="position: relative; text-align: justify">Divide the resulting number from step 1 by the resulting number in step 3. Obesity can lead to a number of serious health problems, including heart disease, diabetes, stroke, and some types of cancer. One method that can help a person lose weight is to limit the number of calories taken in through their diet. </p>
+          <%= link_to 'read more...', post_path(29) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui segment">
+  <div class="ui very relaxed items">
+    <div class="item">
+      <div class="ui medium image">
+        <%= image_tag "tip5.jpg" %>
+      </div>
+      <div class="content"> 
+        <a class="ui header" href="#link">Be Sexy</a>
+        <div class="description">
+          <p style="position: relative; text-align: justify">Carrying around too much weight feels uncomfortable, and it can also damage your health. According the Centers of Disease Control and Prevention (CDC), obesity rates have skyrocketed in the United States in recent years. As of 2010, more than one-third of American adults were considered obese, defined as having a body mass index (BMI) of 30 or higher. The other way is to burn extra calories with exercise. Advertisement Part 2 of 8: Benefits Benefits of Exercise vs. Diet Combining exercise with a healthy diet is a more effective way to lose weight than depending on calorie restriction alone. Exercise can prevent or even reverse the effects of certain diseases. </p>
+          <p style="position: relative; text-align: justify">Exercise lowers blood pressure and cholesterol, which may prevent a heart attack. In addition, if you exercise, you lower your risk of developing certain types of cancers such as colon and breast cancer. Exercise is also known to help contribute to a sense of confidence and well-being, thus possibly lowering rates of anxiety and depression. Exercise is helpful for weight loss and maintaining weight loss. Exercise can increase metabolism, or how many calories you burn in a day. It can also help you maintain and increase lean body mass, which also helps increase number of calories you burn each day.</p>
+          <%= link_to 'read more...', post_path(30) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui segment">
+  <div class="ui very relaxed items">
+    <div class="item">
+      <div class="ui medium image">
+        <%= image_tag "tip5.jpg" %>
+      </div>
+      <div class="content"> 
+        <a class="ui header" href="#link">10 Pounds ? Easily. Check it out</a>
+        <div class="description">
+          <p style="position: relative; text-align: justify">Carrying around too much weight feels uncomfortable, and it can also damage your health. According the Centers of Disease Control and Prevention (CDC), obesity rates have skyrocketed in the United States in recent years. As of 2010, more than one-third of American adults were considered obese, defined as having a body mass index (BMI) of 30 or higher. Body mass is derived by dividing weight in pounds by height in inches squared, and then multiplying the result by 703 (weight (lb) / [height (in)] 2 x 703). The other way is to burn extra calories with exercise. Advertisement Part 2 of 8: Benefits Benefits of Exercise vs. Diet Combining exercise with a healthy diet is a more effective way to lose weight than depending on calorie restriction alone. Exercise can prevent or even reverse the effects of certain diseases. </p>
+          <p style="position: relative; text-align: justify">Exercise lowers blood pressure and cholesterol, which may prevent a heart attack. Exercise can increase metabolism, or how many calories you burn in a day. It can also help you maintain and increase lean body mass, which also helps increase number of calories you burn each day. Part 3 of 8: Exercise How Much Exercise Is Needed for Weight Loss? To reap the health benefits of exercise, it is recommended that you to perform some form of aerobic exercise at least three times a week for a minimum of 20 minutes per session.</p>
+          <%= link_to 'read more...', post_path(31) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+      <tbody>
+        <% @posts.each do |p| %>
+        <tr>
+          <td><%= p.title %></td>
+      		<td><%= p.date_posted %></td>
+      		<td><%= p.try( :category).try (:name) %></td>
+            <% if (p.user == current_user) %>   
+          		<td>
+            		<!-- <%= link_to "Show", post_path(p.id), class: "btn btn-primary btn-s" %> -->
+                <%= link_to "Edit", edit_post_path(p.id), class: "btn btn-success btn-s" %>
+                <%= link_to "Delete", post_path(p.id), data: { :confirm => "Are you sure?"}, :method => :delete, class: "btn btn-danger btn-s" %>
+          		</td>
+            <% else %>
+              <td>
+                <%= link_to "Show", post_path(p.id), class: "btn btn-primary btn-s" %>
+               </td>
+            <% end %>
+      	</tr>
+      	<% end %>
+      </tbody>
+    </table>
   </div>
 </div>

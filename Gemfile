@@ -17,6 +17,8 @@ gem 'semantic-ui-sass'
 gem 'omniauth-facebook', '~> 1.4.1'
 gem 'omniauth'
 gem 'oauth2'
+gem 'fancybox-rails'
+gem 'fancybox2-rails'
 
 
 group :development, :test do

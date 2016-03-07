@@ -1,26 +1,21 @@
 <%= simple_form_for([@reply.comment, @reply]) do |f| %>
   <% if @reply.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this reply from being saved:</h2>
-
-      <ul>
-      <% @reply.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+     <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this reply from being saved:</h2>
+       <ul>
+        <% @reply.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+       </ul>
     </div>
   <% end %>
-
-  
   <div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
   <div class="field">
-    
     <%= f.input :date_posted %>
   </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>
