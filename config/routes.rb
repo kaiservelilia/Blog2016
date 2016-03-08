@@ -6,10 +6,8 @@ Rails.application.routes.draw do
   # get 'auth/failure' => redirect('/')
   get 'logout' => 'sessions#destroy'
   resources :categories
-
+  
   resources :posts do
-    resources :comments, module: 'posts' do
-      resources :replies, module: 'comments'
-    end    
+    resources :comments, module: 'posts' 
   end
 end

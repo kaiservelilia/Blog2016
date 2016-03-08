@@ -1,13 +1,29 @@
-<h2 align="center">Sign up</h2>
-	<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-	  <%= f.error_notification %>
-		  <div class="ui form">
-		    <%= f.input :email, required: true, autofocus: true %>
-		    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-		    <%= f.input :password_confirmation, required: true %>
-		  </div>
-		  <div class="form-actions">
-		    <%= f.button :submit, "Sign up" %>
-		  </div>
-	<% end %>
-<%= render "users/shared/links" %>  
+<div class="container">
+	<br><br><br>
+	<div class="col-xs-4 col-xs-offset-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Sign Up</div>
+				<div class="panel-body" style="position: relative; margin-left: 3%; margin-right: 3%;">
+					<div class="ui form" style="font-size: 100%">
+						
+						<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
+						  <%= f.error_notification %>
+							  <div class="ui form">
+							  	<%= f.input :firstname, required: true, autofocus: true %>
+							  	<%= f.input :middlename, required: true, autofocus: true %>
+							  	<%= f.input :lastname, required: true, autofocus: true %>
+							    <%= f.input :email, required: true, autofocus: true %>
+							    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+							    <%= f.input :password_confirmation, required: true %>
+							  </div>
+							  <div class="form-actions">
+							    <%= f.button :submit, "Sign up" %>
+							  </div>
+						<% end %>
+						<%= render "users/shared/links" %>
+					</div>  
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

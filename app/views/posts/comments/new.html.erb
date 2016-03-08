@@ -1,22 +1,16 @@
-<%= simple_form_for([@comment.post, @comment]) do |f| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-      <ul>
-        <% @comment.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="ui tall stacked segment" id="div1">
+  <%= simple_form_for [@post, @comment] do |f| %>
+  <%= f.association :parent_comment, as: :hidden %>
   <div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
   <div class="field">
     <%= f.input :date_posted %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
   <div class="actions">
-    <%= f.submit class: "btn btn-success" %>
+    <%= f.submit class: "btn btn-default" %>
   </div>
-<% end %>
+  <% end %>
+</div>

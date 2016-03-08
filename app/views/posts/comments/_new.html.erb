@@ -1,9 +1,9 @@
-<%= simple_form_for([@reply.comment.post, @reply]) do |f| %>
-  <% if @reply.errors.any? %>
+<%= simple_form_for [@post, @comment] do |f| %>
+  <% if @comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@reply.errors.count, "error") %> prohibited this reply from being saved:</h2>
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
       <ul>
-        <% @reply.errors.full_messages.each do |msg| %>
+        <% @comment.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>

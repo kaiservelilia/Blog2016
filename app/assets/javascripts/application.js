@@ -15,8 +15,12 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require semantic-ui
+//= require cocoon
+
 
 
  $(document).ready(function() {
   $("a.fancybox").fancybox();
 });
+
+ = javascript_include_tag :cocoon

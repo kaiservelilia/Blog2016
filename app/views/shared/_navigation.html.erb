@@ -1,24 +1,17 @@
-<body>	
-	<nav class=" ui navbar navbar-default">
-		<div class="container-fluid">
-			<div class="header container wrapper">
-				<ul class="nav navbar-nav">
-				  <li role="presentation">
-				  	<%= link_to "Home", root_path %>
-				  </li>
-				  <li role="presentation">
-				  	<%= link_to "Post", posts_path %>
-				  </li>
-				  <li role="presentation">
-				  	<%= link_to "Category", categories_path %>
-				  </li>
-				  </ul>
-				  <ul  role = "presentation" class="pull-right">
-   				<strong><%= current_user.email %></strong>
-   				<%= link_to "LOGOUT", destroy_user_session_path, class: "btn btn-success btn-s", method: :delete, data: {confirm: "Are you sure"} %>
-   				</ul>
-			</div>
-		</div>
-	</nav>
-</body>		
-
+<nav class="ui navbar navbar-default">
+	<div class="ui menu" style="font-size: 110%;">
+	  <%= link_to "Home", root_path, class: "item" %>
+	  <%= link_to "My Post", posts_path, class: "item" %>
+	  <%= link_to "Category", categories_path, class: "item" %>
+	  <div class="right menu">
+	    <a class="ui item">
+	    <% if user_signed_in? %>
+	      <i class="user icon"></i><%= current_user.email %>
+	      <%= link_to "Sign Out", destroy_user_session_path,  method: :delete, data: { Confirm: "Are you sure?" },  class: "item" %>
+	    <% else %>
+	    <a class="item" href="/users/sign_in">Log In</a>
+	    <% end %>
+	    </a>
+	  </div>
+	</div>
+</nav>

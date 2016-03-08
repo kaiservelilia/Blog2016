@@ -7,4 +7,15 @@ class ApplicationController < ActionController::Base
   #   @current_user ||= User.find(session[:user_id]) if session[:user_id]
   # end
   # helper_method :current_user
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+
+    protected
+
+    def configure_permitted_parameters
+        # Fields for sign up
+        devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:firstname, :middlename, :lastname, :email, :password) }
+        # Fields for editing an existing account
+        devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:firstname, :middlename, :lastname, :email, :password) }
+    end
+
  end

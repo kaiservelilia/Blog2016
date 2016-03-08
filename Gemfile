@@ -19,7 +19,8 @@ gem 'omniauth'
 gem 'oauth2'
 gem 'fancybox-rails'
 gem 'fancybox2-rails'
-
+gem 'cocoon'
+gem 'hirb'
 
 group :development, :test do
   gem 'byebug'

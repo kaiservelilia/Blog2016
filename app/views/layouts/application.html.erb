@@ -6,22 +6,19 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <div class="header container wrapper">
-	 <h1><img style="position:relative; width:100%; top:auto; right:6px; vertical-align:bottom;" alt="header" src="/assets/logo.jpg"></h1>
+	 <h1><img style="position:relative; width:100%; top:auto; right:6px; vertical-align:bottom; height: 100px;" alt="header" src="/assets/logo.jpg"></h1>
 	</div>
 	</head>
 		<body>
 			<div class="container">
 			<!-- <br><br><br> -->
 				<!-- <div class="col-xs-4 col-xs-offset-4"> -->
-					<div class="ui form">
-					  <% if current_user %>
-					    <%= render partial: "shared/navigation" %>
-						<% else %>
-							<%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: "ui facebook button" %>
-					  <% end %>
-						<%= yield %>
-					</div>
-				<!-- </div> -->
+				<div class="ui form">
+				  <% if current_user %>
+				    <%= render partial: "shared/navigation" %>
+				  <% end %>
+					<%= yield %>
+				</div>
 			</div>
 		</body>
 </html>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302072511) do
+ActiveRecord::Schema.define(version: 20160308062041) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -25,9 +25,10 @@ ActiveRecord::Schema.define(version: 20160302072511) do
     t.date     "date_posted"
     t.integer  "user_id"
     t.integer  "post_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "reply_id"
+    t.integer  "parent_comment_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -68,6 +69,9 @@ ActiveRecord::Schema.define(version: 20160302072511) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.string   "firstname"
+    t.string   "middlename"
+    t.string   "lastname"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,186 +1,71 @@
-<div id="div1">
-	<header>
-	  <div class="row">
-	    <div class="col-md-3">
-	      <h1><img style="position:relative; width:450%; left:auto; top:auto; right:10px; vertical-align:bottom;" alt="header" src="assets/header1.jpg"></h1>
-	    </div>	
-		</div>
-	</header>
+<div class="ui block header">
+  <script type="text/javascript">
+				var image1=new Image()
+				image1.src="/assets/head1.jpg"
+				var image2=new Image()
+				image2.src="/assets/head2.jpg"
+				var image3=new Image()
+				image3.src="/assets/head3.jpg"
+				var image4=new Image()
+				image4.src="/assets/head4.jpg"
+			</script>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$(".fancybox").fancybox();
+				});
+			</script>
+		</head>
+		<body>
+			<div id="wrapper" class="center">
+				<div id="slider">
+					<img src="images/head1.jpg" name="slide" width="100%" height="100">
+					<script type="text/javascript">
+						<!--
+						var step=1
+						function slideit () {
+					// body...
+					document.images.slide.src=eval("image"+step+".src")
+					if(step<4)
+						step++
+					else	
+						step=1
+					setTimeout("slideit()",2500)
+				}
+				slideit()		
+				//
+	</script>
+</div>
+<div class="row">
+  <div class="col-md-9">
+  <h2><%= @posts.count %>  Post</h2>
+    <% @posts.each do |p| %>
+    	<table id="mytable" class = "ui tall stacked segment">
+        <th colspan="2"><h3><center><%= p.title %></center><%= p.date_posted %></h3></th>  
+        <tr>
+          <td rowspan="2"><img src="assets/tip3.jpg" style="position: relative; height: 100px;"></img></td>
+        </tr>
+        <tr>
+          <td><p style="position: relative; text-align: justify; text-indent: 3%; padding-top: 2%;"><%= truncate p.content, length: 450 %><%= link_to "Read More", post_path(p.id) %></p>
+          </td>
+        </tr>
+       <td>Posted By: <i class="user icon"></i> <%= p.user.email %></td>
+      </table>
+    <% end %>
+  </div>
 
-	<div class="ui segment">
-		<div class="ui very relaxed items">
-		  <div class="item">
-		    <div class="ui medium image">
-		      <%= link_to image_tag('tip1.jpg'), root_path %>
-		    </div>
-		    <div class="content">	
-		      <a class="ui header" href="#link">A Moment To Remember</a>
-		      <div class="description">
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <%= link_to 'read more...' %>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-	</div>
-	<div class="ui segment">
-		<div class="ui very relaxed items">
-		  <div class="item">
-		    <div class="ui medium image">
-		      <%= image_tag "tip6.jpg" %>
-		    </div>
-		    <div class="content">	
-		      <a class="ui header" href="#link">A Moment To Remember</a>
-		      <div class="description">
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <%= link_to 'read more...' %>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-	</div>
-	<div class="ui segment">
-		<div class="ui very relaxed items">
-		  <div class="item">
-		    <div class="ui medium image">
-		      <%= image_tag "tip3.jpg" %>
-		    </div>
-		    <div class="content">	
-		      <a class="ui header" href="#link">A Moment To Remember</a>
-		      <div class="description">
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <%= link_to 'read more...' %>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-	</div>
-	<div class="ui segment">
-		<div class="ui very relaxed items">
-		  <div class="item">
-		    <div class="ui medium image">
-		      <%= image_tag "tip4.jpg" %>
-		    </div>
-		    <div class="content">	
-		      <a class="ui header" href="#link">A Moment To Remember</a>
-		      <div class="description">
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <%= link_to 'read more...' %>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-	</div>
-	<div class="ui segment">
-		<div class="ui very relaxed items">
-		  <div class="item">
-		    <div class="ui medium image">
-		      <%= image_tag "tip5.jpg" %>
-		    </div>
-		    <div class="content">	
-		      <a class="ui header" href="#link">A Moment To Remember</a>
-		      <div class="description">
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <p>Ut imperdiet dignissim feugiat. Phasellus tristique odio eu justo dapibus, nec rutrum ipsum luctus. Ut posuere nec tortor eu ullamcorper. <a href="#link">Etiam pellentesque</a> tincidunt tortor, non sagittis nibh pretium sit amet. Sed neque dolor, blandit eu ornare vel, lacinia porttitor nisi. Vestibulum sit amet diam rhoncus, consectetur enim sit amet, interdum mauris. Praesent feugiat finibus quam, porttitor varius est egestas id.</p>
-		        <%= link_to 'read more...' %>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-	</div>
+  <div class="recent_font">
+    <div class="col-md-3">
+      <div class="ui tall stacked segment">
+      <center><td rowspan="2"><img src="assets/recent.jpg" style="position: relative; height: 100px;"></img></td></center><br>
+        <div class="ui fitted divider"></div>
+        <% @posts.each do |p| %>
+        <tr>
+          <h4><%= link_to p.title, post_path(p.id) %></h4>
+          <td rowspan="2"><img src="assets/tip3.jpg" style="position: relative; height: 100px;"></img></td>
+        </tr>
+        <% end %> 
+      </div>
+    </div>
+  </div>
 </div>
 
-<div id="div2">	
-	<header>
-		<div class="row">
-		  <div class="col-md-3">
-		    <h1><img style="position:relative; width:580%;" alt="header" src="assets/recent.jpg"></h1>
-		  </div>	
-		</div>
-	</header>
-	<div class="ui segment">
-		<div class="ui very relaxed items">
-		  <div class="item">
-		    <div class="ui medium image">
-		      <%= image_tag "tip4.jpg" %>
-		    </div>
-		  </div>
-		</div>
-	</div>
-
-	<div class="ui segment">
-		<div class="ui very relaxed items">
-		  <div class="item">
-		    <div class="ui medium image">
-		      <%= image_tag "tip5.jpg" %>
-		    </div>
-		  </div>
-		</div>
-	</div>
-
-	<div class="ui segment">
-		<div class="ui very relaxed items">
-		  <div class="item">
-		    <div class="ui medium image">
-		      <%= image_tag "tip6.jpg" %>
-		    </div>
-		  </div>
-		</div>
-	</div>
-</div>
-	<style>
-	#div1{
-		width: 70%; float:left; padding-bottom: 3%;
-	}
-
-	#div2{
-		width: 29%; float:left; padding-bottom: 3%; margin-left: 1%; padding: 2%;
-	}
-	</style>
-
-
-	<!-- 
-	<script type="text/javascript">
-			var image1=new Image()
-			image1.src="/assets/tip1.jpg"
-			var image2=new Image()
-			image2.src="/assets/tip2.jpg"
-			var image3=new Image()
-			image3.src="/assets/tip3.jpg"
-			var image4=new Image()
-			image4.src="/assets/tip4.jpg"
-		</script>
-		<script type="text/javascript">
-			$(document).ready(function() {
-				$(".fancybox").fancybox();
-			});
-		</script>
-	</head>
-	<body>
-		<div id="wrapper" class="center">
-			<div id="slider">
-				<img src="images/slide1.jpg" name="slide" width="100%" height="300px">
-				<script type="text/javascript">
-					<!--
-					var step=1
-					function slideit () {
-				// body...
-				document.images.slide.src=eval("image"+step+".src")
-				if(step<4)
-					step++
-				else	
-					step=1
-				setTimeout("slideit()",2500)
-			}
-			slideit()		
-			//-->
-		<!-- </script> --> 

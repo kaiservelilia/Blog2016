@@ -3,46 +3,61 @@
 		<div class="ui bottom attached active tab segment" data-tab="first">
 			<table class="table hp-table table-splited">
 				<thead>
-						<h1 align="center"><%= @post.title %></h1>
+					<h1 align="center"><%= @post.title %></h1>
 				</thead>
 				<tbody>
 					<td> <%= @post.content %> </td>
 				</tbody>
+					<td>				
+						<% if (@post.user_id == current_user.id) %>
+							<%= link_to "EDIT", edit_post_path(@post.id) %>
+							<%= link_to "DELETE", post_path(@post.id), data: {:confirm => "Are you sure?"}, :method => :delete %>
+							<% else %>
+						<% end %>
+					</td>
 			</table>
 		</div>
 	</div>
 </div>
 <div class="ui segment">
-<div class="container2">
-		<table class="table hp-table table-splited">
-			<thead>
-				<th>Comments</th>
-				<th>Date Posted</th>
-				<th>Action</th>
-			</thead>
-			<tbody>
-				<% @comments.each do |comment| %>
-					<tr>
-						<td><%= comment.content %></td>
-						<td><%= comment.date_posted %></td	>
-						<td>
-              <% if (comment.user_id == current_user.id) %>
-              <%= link_to 'SHOW', post_comment_path(comment.post, comment), class: "btn btn-success" %>
-              <%= link_to 'EDIT', edit_post_comment_path(comment.post, comment), class: "btn btn-danger" %>
-              <%= link_to 'DELETE', [comment.post, comment], class: "btn btn-primary", :confirm => 'Are you sure?', :method => :delete%>
-              <% else %>
-            		<%= link_to 'SHOW', [comment.post, comment], class: "btn btn-success" %>
-            <%end %>
-            </td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
-		<%= link_to 'Add Comment', new_post_comment_path(@post), class: "btn btn-success" %>
+	<div class="container2">
+			<div class="ui fitted divider"></div>
+				<table class="table hp-table table-splited">
+				<thead>
+					<th>Comments</th>
+					<th>Replies</th>
+					<th>Actions</th>
+				</thead>
+					<tbody>
+						<% @comments.each do |comment| %>
+							<% if comment.is_not_reply? %>
+			      	<tr>
+					      <td><%= comment.date_posted %><br><br>
+				        		<%= comment.content %>
+				        </td>
+								  <td>
+									  <div class="pull-right">
+				            <% if (comment.user_id == current_user.id) %>
+				              <%= link_to 'EDIT', edit_post_comment_path(comment.post, comment) %>|
+				              <%= link_to 'DELETE', [comment.post, comment], :confirm => 'Are you sure?', :method => :delete%>|
+				              <%= link_to "REPLY", new_post_comment_path(@post.id, parent_comment_id: comment.id) %>
+				          	<%end %>
+				        	  </div>
+				        	  <ul class="list-group">
+						         	<% comment.replies.each do |r|%>
+						         	<li class="list group-item"><%= r.content %></li>
+						        </ul>
+						        	<% end %>
+				          </td>
+				        </tr>
+				   		<% end %>
+						<% end %>
+							<h2><%= @post.comments.count %> Comments</h2>
+					 </tbody>
+				</table>
+			</div>
+			  <%= render partial:"posts/comments/new" %>
+		</div>
 	</div>
 </div>
-	<script>
-		$('.menu .item')
-		  .tab()
-		;
-	</script>
+

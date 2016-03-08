@@ -1,9 +1,10 @@
 class CategoriesController < ApplicationController
 	def index
-	  # @categories = current_user.categories
- 	 	@categories = Category.all
+	   # @categories = current_user.categories
+	  # @categories = current_user.categories.list_of_categories
+ 	 	 @categories = Category.all.where(user_id: current_user)
 	end
-
+	@category = Category.count_of_category
 	def new
 		@category = Category.new
 	end
@@ -20,6 +21,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def show
+		# @categories = current_user.categories.list_of_categoriess
 		@category = Category.find(params[ :id])
 		@posts = Post.where(category_id: @category.id)
 	end

@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          has_many :comments
          has_many :replies
    end
+
   
     class User < ActiveRecord::Base
       def self.omniauth(auth)
@@ -19,5 +20,9 @@ class User < ActiveRecord::Base
           user.expires_at = Time.at(auth.credentials.expires_at)
           user.save!
       end
+    end
+
+    def to_s
+      "#{firstname} #{middlename} #{lastname}"
     end
 end
